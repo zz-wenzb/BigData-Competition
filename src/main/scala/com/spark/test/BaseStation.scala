@@ -11,7 +11,7 @@ object BaseStation {
     conf.setMaster("local[*]")
 
     val sc = new SparkContext(conf)
-    val rdd = sc.textFile("C:\\Users\\DrZon\\IdeaProjects\\Install-BigData\\data\\text")
+    val rdd = sc.textFile("D:\\project\\BigData-Competition\\data\\text")
     val rdd1 = rdd.map(x => {
       val words = x.split(",")
       val phone = words(0)
@@ -38,7 +38,7 @@ object BaseStation {
       (phoneLac._2, (phoneLac._1, time))
     })
 
-    val loc = sc.textFile("C:\\Users\\DrZon\\IdeaProjects\\Install-BigData\\data\\loc_info")
+    val loc = sc.textFile("D:\\project\\BigData-Competition\\data\\loc_info")
 
     val lac1 = loc.map(x => {
       val words = x.split(",")
@@ -73,7 +73,7 @@ object BaseStation {
       x.productIterator.mkString(",")
     })
 
-    rdd9.saveAsTextFile("C:\\Users\\DrZon\\IdeaProjects\\Install-BigData\\data\\out1")
+    rdd9.saveAsTextFile("D:\\project\\BigData-Competition\\data\\out1")
 
     println(rdd9.collect().toList)
 

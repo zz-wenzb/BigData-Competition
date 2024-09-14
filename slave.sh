@@ -6,13 +6,13 @@ yum install -y ntp
 yum install -y wget
 yum install -y unzip zip
 wget https://repo.huaweicloud.com/java/jdk/8u171-b11/jdk-8u171-linux-x64.tar.gz
-wget https://archive.apache.org/dist/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz
-wget https://archive.apache.org/dist/hadoop/core/hadoop-2.7.3/hadoop-2.7.3.tar.gz
+wget https://mirrors.huaweicloud.com/apache/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz
+wget https://mirrors.huaweicloud.com/apache/hadoop/core/hadoop-2.7.6/hadoop-2.7.6.tar.gz
 wget https://repo.mysql.com/mysql57-community-release-el7-11.noarch.rpm
 wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.47.zip
-wget https://archive.apache.org/dist/hive/hive-2.1.1/apache-hive-2.1.1-bin.tar.gz
+wget https://mirrors.huaweicloud.com/apache/hive/hive-2.1.1/apache-hive-2.1.1-bin.tar.gz
 wget https://scala-lang.org/files/archive/scala-2.11.11.tgz
-wget https://archive.apache.org/dist/spark/spark-2.4.3/spark-2.4.3-bin-hadoop2.7.tgz
+wget https://mirrors.huaweicloud.com/apache/spark/spark-2.4.3/spark-2.4.3-bin-hadoop2.7.tgz
 
 # 基础环境配置
 # 关掉防火墙
@@ -28,8 +28,8 @@ tar -zxvf ./jdk-8u171-linux-x64.tar.gz -C /usr/java
 mkdir -p /usr/zookeeper/zookeeper-3.4.10/conf
 tar -zxvf ./zookeeper-3.4.10.tar.gz -C /usr/zookeeper
 # 配置hadoop
-mkdir -p /usr/hadoop/hadoop-2.7.3/etc/hadoop
-tar -zxvf ./hadoop-2.7.3.tar.gz -C /usr/hadoop
+mkdir -p /usr/hadoop/hadoop-2.7.6/etc/hadoop
+tar -zxvf ./hadoop-2.7.6.tar.gz -C /usr/hadoop
 # 安装mysql
 yum localinstall -y mysql57-community-release-el7-11.noarch.rpm
 yum repolist enabled | grep "mysql.*-community.*"

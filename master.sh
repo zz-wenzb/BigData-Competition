@@ -6,13 +6,13 @@ yum install -y ntp
 yum install -y wget
 yum install -y unzip zip
 wget https://repo.huaweicloud.com/java/jdk/8u171-b11/jdk-8u171-linux-x64.tar.gz
-wget https://archive.apache.org/dist/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz
-wget https://archive.apache.org/dist/hadoop/core/hadoop-2.7.3/hadoop-2.7.3.tar.gz
+wget https://mirrors.huaweicloud.com/apache/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz
+wget https://mirrors.huaweicloud.com/apache/hadoop/core/hadoop-2.7.6/hadoop-2.7.6.tar.gz
 wget https://repo.mysql.com/mysql57-community-release-el7-11.noarch.rpm
 wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.47.zip
-wget https://archive.apache.org/dist/hive/hive-2.1.1/apache-hive-2.1.1-bin.tar.gz
+wget https://mirrors.huaweicloud.com/apache/hive/hive-2.1.1/apache-hive-2.1.1-bin.tar.gz
 wget https://scala-lang.org/files/archive/scala-2.11.11.tgz
-wget https://archive.apache.org/dist/spark/spark-2.4.3/spark-2.4.3-bin-hadoop2.7.tgz
+wget https://mirrors.huaweicloud.com/apache/spark/spark-2.4.3/spark-2.4.3-bin-hadoop2.7.tgz
 
 # 基础环境配置
 # 配置主机名
@@ -86,20 +86,20 @@ do
 done
 # 配置hadoop
 mkdir -p /usr/hadoop
-tar -zxvf ./hadoop-2.7.3.tar.gz -C /usr/hadoop
-sed -i '25 i export JAVA_HOME=/usr/java/jdk1.8.0_171' /usr/hadoop/hadoop-2.7.3/etc/hadoop/hadoop-env.sh
-sed -i '18 i export JAVA_HOME=/usr/java/jdk1.8.0_171' /usr/hadoop/hadoop-2.7.3/etc/hadoop/yarn-env.sh
-touch /usr/hadoop/hadoop-2.7.3/etc/hadoop/excludes
-echo "master" > /usr/hadoop/hadoop-2.7.3/etc/hadoop/master
-echo "" > /usr/hadoop/hadoop-2.7.3/etc/hadoop/slaves
+tar -zxvf ./hadoop-2.7.6.tar.gz -C /usr/hadoop
+sed -i '25 i export JAVA_HOME=/usr/java/jdk1.8.0_171' /usr/hadoop/hadoop-2.7.6/etc/hadoop/hadoop-env.sh
+sed -i '18 i export JAVA_HOME=/usr/java/jdk1.8.0_171' /usr/hadoop/hadoop-2.7.6/etc/hadoop/yarn-env.sh
+touch /usr/hadoop/hadoop-2.7.6/etc/hadoop/excludes
+echo "master" > /usr/hadoop/hadoop-2.7.6/etc/hadoop/master
+echo "" > /usr/hadoop/hadoop-2.7.6/etc/hadoop/slaves
 for ((i=1; i<index; i++))
 do
-  echo "slave$i" >> /usr/hadoop/hadoop-2.7.3/etc/hadoop/slaves
+  echo "slave$i" >> /usr/hadoop/hadoop-2.7.6/etc/hadoop/slaves
 done
-cp -r ./hadoop /usr/hadoop/hadoop-2.7.3/etc
+cp -r ./hadoop /usr/hadoop/hadoop-2.7.6/etc
 for ((i=1; i<index; i++))
 do
-  scp -r /usr/hadoop/hadoop-2.7.3/etc/hadoop root@slave${i}:/usr/hadoop/hadoop-2.7.3/etc
+  scp -r /usr/hadoop/hadoop-2.7.6/etc/hadoop root@slave${i}:/usr/hadoop/hadoop-2.7.6/etc
 done
 # 安装hive
 mkdir -p /usr/hive

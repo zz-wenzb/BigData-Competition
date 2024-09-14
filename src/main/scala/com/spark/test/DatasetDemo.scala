@@ -16,7 +16,7 @@ object DatasetDemo {
     spark.sparkContext.setLogLevel("WARN")
     import spark.implicits._
 
-    val df: DataFrame = spark.read.json("C:\\Users\\DrZon\\IdeaProjects\\Install-BigData\\data\\emp.json")
+    val df: DataFrame = spark.read.json("D:\\project\\BigData-Competition\\data\\emp.json")
 
     // 将DataFrame转为Dataset
     val ds: Dataset[Emp] = df.as[Emp]
