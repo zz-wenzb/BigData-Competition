@@ -53,14 +53,14 @@ object PeopleAgeHeight {
     spark.sparkContext.setLogLevel("WARN")
 
     //    将1、2题目中的数据，按编号进行关联join
-    val ages = spark.read.textFile("C:\\Users\\DrZon\\IdeaProjects\\Install-BigData\\data\\peopleage.txt")
+    val ages = spark.read.textFile("/home/work/data/peopleage.txt")
     val ages1 = ages.map(x => {
       val words = x.split(" ")
       (words(0).toInt, words(1).toInt)
     })    // id, age
     ages1.createOrReplaceTempView("ages")
 
-    val heights = spark.read.textFile("C:\\Users\\DrZon\\IdeaProjects\\Install-BigData\\data\\peopleinfo.txt")
+    val heights = spark.read.textFile("/home/work/data/peopleinfo.txt")
     val heights1 = heights.map(x => {
       val words = x.split(" ")
       (words(0).toInt, words(1), words(2).toInt)

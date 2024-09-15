@@ -11,7 +11,7 @@ wget https://mirrors.huaweicloud.com/apache/hadoop/core/hadoop-2.7.6/hadoop-2.7.
 wget https://repo.mysql.com/mysql57-community-release-el7-11.noarch.rpm
 wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.47.zip
 wget https://mirrors.huaweicloud.com/apache/hive/hive-2.1.1/apache-hive-2.1.1-bin.tar.gz
-wget https://scala-lang.org/files/archive/scala-2.11.11.tgz
+wget https://downloads.lightbend.com/scala/2.11.11/scala-2.11.11.tgz
 wget https://mirrors.huaweicloud.com/apache/spark/spark-2.4.3/spark-2.4.3-bin-hadoop2.7.tgz
 
 # 基础环境配置
@@ -96,7 +96,7 @@ for ((i=1; i<index; i++))
 do
   echo "slave$i" >> /usr/hadoop/hadoop-2.7.6/etc/hadoop/slaves
 done
-cp -r ./hadoop /usr/hadoop/hadoop-2.7.6/etc
+\cp -r ./hadoop /usr/hadoop/hadoop-2.7.6/etc
 for ((i=1; i<index; i++))
 do
   scp -r /usr/hadoop/hadoop-2.7.6/etc/hadoop root@slave${i}:/usr/hadoop/hadoop-2.7.6/etc
@@ -104,10 +104,10 @@ done
 # 安装hive
 mkdir -p /usr/hive
 tar -zxvf ./apache-hive-2.1.1-bin.tar.gz -C /usr/hive
-echo 'export HADOOP_HOME=/usr/hadoop/hadoop-2.7.3' >> /usr/hive/apache-hive-2.1.1-bin/conf/hive-env.sh
+echo 'export HADOOP_HOME=/usr/hadoop/hadoop-2.7.6' >> /usr/hive/apache-hive-2.1.1-bin/conf/hive-env.sh
 echo 'export HIVE_CONF_DIR=/usr/hive/apache-hive-2.1.1-bin/conf' >> /usr/hive/apache-hive-2.1.1-bin/conf/hive-env.sh
 echo 'export HIVE_AUX_JARS_PATH=/usr/hive/apache-hive-2.1.1-bin/lib' >> /usr/hive/apache-hive-2.1.1-bin/conf/hive-env.sh
-cp /usr/hive/apache-hive-2.1.1-bin/lib/jline-2.12.jar /usr/hadoop/hadoop-2.7.3/share/hadoop/yarn/lib/
+cp /usr/hive/apache-hive-2.1.1-bin/lib/jline-2.12.jar /usr/hadoop/hadoop-2.7.6/share/hadoop/yarn/lib/
 unzip -o -d ./ mysql-connector-java-5.1.47.zip
 cp ./mysql-connector-java-5.1.47/mysql-connector-java-5.1.47-bin.jar /usr/hive/apache-hive-2.1.1-bin/lib
 cp ./hive/hive-master.xml /usr/hive/apache-hive-2.1.1-bin/conf/hive-site.xml
@@ -126,7 +126,7 @@ tar -zxvf ./spark-2.4.3-bin-hadoop2.7.tgz -C /usr/spark
 cp /usr/spark/spark-2.4.3-bin-hadoop2.7/conf/spark-env.sh.template /usr/spark/spark-2.4.3-bin-hadoop2.7/conf/spark-env.sh
 echo 'export JAVA_HOME=/usr/java/jdk1.8.0_171' >> /usr/spark/spark-2.4.3-bin-hadoop2.7/conf/spark-env.sh
 echo 'export SCALA_HOME=/usr/scala/scala-2.11.11' >> /usr/spark/spark-2.4.3-bin-hadoop2.7/conf/spark-env.sh
-echo 'export HADOOP_HOME=/usr/hadoop/hadoop-2.7.3' >> /usr/spark/spark-2.4.3-bin-hadoop2.7/conf/spark-env.sh
+echo 'export HADOOP_HOME=/usr/hadoop/hadoop-2.7.6' >> /usr/spark/spark-2.4.3-bin-hadoop2.7/conf/spark-env.sh
 echo 'export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop' >> /usr/spark/spark-2.4.3-bin-hadoop2.7/conf/spark-env.sh
 echo 'export SPARK_MASTER_IP=master' >> /usr/spark/spark-2.4.3-bin-hadoop2.7/conf/spark-env.sh
 echo 'export SPARK_WORKER_MEMORY=8g' >> /usr/spark/spark-2.4.3-bin-hadoop2.7/conf/spark-env.sh
@@ -152,7 +152,7 @@ echo '# zookeeper' >> /etc/profile
 echo 'export ZOOKEEPER_HOME=/usr/zookeeper/zookeeper-3.4.10' >> /etc/profile
 echo 'export PATH=$PATH:$ZOOKEEPER_HOME/bin' >> /etc/profile
 echo '# hadoop' >> /etc/profile
-echo 'export HADOOP_HOME=/usr/hadoop/hadoop-2.7.3' >> /etc/profile
+echo 'export HADOOP_HOME=/usr/hadoop/hadoop-2.7.6' >> /etc/profile
 echo 'export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin' >> /etc/profile
 echo '# hive' >> /etc/profile
 echo 'export HIVE_HOME=/usr/hive/apache-hive-2.1.1-bin' >> /etc/profile

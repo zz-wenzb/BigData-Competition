@@ -16,10 +16,10 @@ object PhoneStation {
     conf.setMaster("local[*]")
     conf.setAppName("PhoneStation")
 
-    val locPath = "C:\\Users\\DrZon\\IdeaProjects\\Install-BigData\\data\\loc"
-    val stationAPath = "C:\\Users\\DrZon\\IdeaProjects\\Install-BigData\\data\\baseA"
-    val stationBPath = "C:\\Users\\DrZon\\IdeaProjects\\Install-BigData\\data\\baseB"
-    val stationCPath = "C:\\Users\\DrZon\\IdeaProjects\\Install-BigData\\data\\baseC"
+    val locPath = "/home/work/data/loc"
+    val stationAPath = "/home/work/data/baseA"
+    val stationBPath = "/home/work/data/baseB"
+    val stationCPath = "/home/work/data/baseC"
 
     // RDD做法
     /*

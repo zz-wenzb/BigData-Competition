@@ -67,7 +67,7 @@ object PeopleAgeDemo {
     spark.sparkContext.setLogLevel("WARN")
 
     //    第一列为编号  第二列为年龄
-    val ds = spark.read.textFile("C:\\Users\\DrZon\\IdeaProjects\\Install-BigData\\data\\peopleage.txt")
+    val ds = spark.read.textFile("/home/work/data/peopleage.txt")
     val ds1 = ds.map(x => (x.split(" ").toList.head.toInt, x.split(" ").toList(1).toInt))
     ds1.show()
 

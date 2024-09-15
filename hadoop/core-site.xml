@@ -23,7 +23,7 @@
 	</property>
 	<property>
 		<name>hadoop.tmp.dir</name>
-		<value>/usr/hadoop/hadoop-2.7.3/hdfs/tmp</value>
+		<value>/usr/hadoop/hadoop-2.7.6/hdfs/tmp</value>
 	</property>
 	<property>
 		<name>io.file.buffer.size</name>

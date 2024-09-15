@@ -15,7 +15,7 @@ object MobileLocation {
     val sc = new SparkContext(conf)
 
     //第一步：读取手机用户数据-拆分
-    val file:RDD[String] = sc.textFile("/root/phonestation/testdata/user.txt")
+    val file:RDD[String] = sc.textFile("/home/work/data/user.txt")
     //定义phoneAndLacAndTime用于接收元组，map函数指定一个参数line，line代表了每行数据
     val phoneAndLacAndTime = file.map(line => {
       //数据按照逗号拆分，拆分的数据形成了数组()
@@ -51,7 +51,7 @@ object MobileLocation {
     })
 
     //第三步：经纬度
-    val lacInfo = sc.textFile("/root/phonestation/testdata/info.txt")
+    val lacInfo = sc.textFile("/home/work/data/info.txt")
     //读取的基站数据指定一个参数line
     val lacAndXY = lacInfo.map(line =>{
       //每行数据按照逗号拆分
@@ -89,7 +89,7 @@ object MobileLocation {
     // 返回数组，打印结果
     println(res.collect().toBuffer)
     // 保存至文件
-    res.saveAsTextFile("/root/phonestation/testdata/output")
+    res.saveAsTextFile("/home/work/data/output")
     // 释放资源 关闭spark
     sc.stop()
   }

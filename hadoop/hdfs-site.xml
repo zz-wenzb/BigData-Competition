@@ -27,21 +27,21 @@
 	</property>
 	<property>
 		<name>dfs.namenode.name.dir</name>
-		<value>file:/usr/hadoop/hadoop-2.7.3/hdfs/name</value>
+		<value>file:/usr/hadoop/hadoop-2.7.6/hdfs/name</value>
 	</property>
 	<property>
 		<name>dfs.datanode.data.dir</name>
-		<value>file:/usr/hadoop/hadoop-2.7.3/hdfs/data</value>
+		<value>file:/usr/hadoop/hadoop-2.7.6/hdfs/data</value>
 	</property>
 	<property>
 		<name>dfs.hosts.exclude</name>
-		<value>/usr/hadoop/hadoop-2.7.3/etc/hadoop/excludes</value>
+		<value>/usr/hadoop/hadoop-2.7.6/etc/hadoop/excludes</value>
 		<description>节点黑名单</description>
 	</property>
 	<!--
 	<property>
 		<name>dfs.hosts</name>
-		<value>/usr/hadoop/hadoop-2.7.3/etc/hadoop/datanode-allow.list</value>
+		<value>/usr/hadoop/hadoop-2.7.6/etc/hadoop/datanode-allow.list</value>
 		<description>节点白名单</description>
 	</property>
 	-->

@@ -9,8 +9,8 @@ object WordCount {
     val conf = new SparkConf()
     conf.setMaster("local[*]")
     conf.setAppName("WordCount")
-    val filePath = "C:\\Users\\DrZon\\IdeaProjects\\Install-BigData\\data\\LICENSE"
-    val puncPath = "C:\\Users\\DrZon\\IdeaProjects\\Install-BigData\\data\\punctuations"
+    val filePath = "/home/work/data/LICENSE"
+    val puncPath = "/home/work/data/punctuations"
 
     // RDD做法
     /*

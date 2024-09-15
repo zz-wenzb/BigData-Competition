@@ -14,7 +14,7 @@ object TaobaoData {
     val conf = new SparkConf()
     conf.setMaster("local[*]")
     conf.setAppName("TaobaoData")
-    val filePath = "C:\\Users\\DrZon\\IdeaProjects\\Install-BigData\\data\\taobao100.csv"
+    val filePath = "/home/work/data/taobao100.csv"
 
     // RDD实现
     /*

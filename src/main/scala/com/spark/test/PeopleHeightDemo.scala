@@ -18,7 +18,7 @@ object PeopleHeightDemo {
 
     //    读取peopleinfo.txt文件
     //    第一列为编号  第二列为性别 M为男性 F为女性  第三列为身高
-    val rdd = sc.textFile("C:\\Users\\DrZon\\IdeaProjects\\Install-BigData\\data\\peopleinfo.txt")
+    val rdd = sc.textFile("/home/work/data/peopleinfo.txt")
     val rdd1 = rdd.map(x => {
       val words = x.split(" ")
       (words(0).toInt, words(1), words(2).toInt)

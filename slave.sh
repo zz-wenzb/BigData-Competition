@@ -11,7 +11,7 @@ wget https://mirrors.huaweicloud.com/apache/hadoop/core/hadoop-2.7.6/hadoop-2.7.
 wget https://repo.mysql.com/mysql57-community-release-el7-11.noarch.rpm
 wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.47.zip
 wget https://mirrors.huaweicloud.com/apache/hive/hive-2.1.1/apache-hive-2.1.1-bin.tar.gz
-wget https://scala-lang.org/files/archive/scala-2.11.11.tgz
+wget https://downloads.lightbend.com/scala/2.11.11/scala-2.11.11.tgz
 wget https://mirrors.huaweicloud.com/apache/spark/spark-2.4.3/spark-2.4.3-bin-hadoop2.7.tgz
 
 # 基础环境配置
@@ -51,10 +51,10 @@ mysql -uroot -p"$mysql_password" --connect-expired-password < ./mysql.sql
 # 安装hive
 mkdir -p /usr/hive
 tar -zxvf ./apache-hive-2.1.1-bin.tar.gz -C /usr/hive
-echo 'export HADOOP_HOME=/usr/hadoop/hadoop-2.7.3' >> /usr/hive/apache-hive-2.1.1-bin/conf/hive-env.sh
+echo 'export HADOOP_HOME=/usr/hadoop/hadoop-2.7.6' >> /usr/hive/apache-hive-2.1.1-bin/conf/hive-env.sh
 echo 'export HIVE_CONF_DIR=/usr/hive/apache-hive-2.1.1-bin/conf' >> /usr/hive/apache-hive-2.1.1-bin/conf/hive-env.sh
 echo 'export HIVE_AUX_JARS_PATH=/usr/hive/apache-hive-2.1.1-bin/lib' >> /usr/hive/apache-hive-2.1.1-bin/conf/hive-env.sh
-cp /usr/hive/apache-hive-2.1.1-bin/lib/jline-2.12.jar /usr/hadoop/hadoop-2.7.3/share/hadoop/yarn/lib/
+cp /usr/hive/apache-hive-2.1.1-bin/lib/jline-2.12.jar /usr/hadoop/hadoop-2.7.6/share/hadoop/yarn/lib/
 unzip -o -d ./ mysql-connector-java-5.1.47.zip
 cp ./mysql-connector-java-5.1.47/mysql-connector-java-5.1.47-bin.jar /usr/hive/apache-hive-2.1.1-bin/lib
 # 安装scala
