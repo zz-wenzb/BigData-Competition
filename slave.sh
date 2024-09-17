@@ -1,5 +1,10 @@
 #!/bin/bash
 # 下载资源
+#sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+#sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+#yum makecache
+#yum update -y
+
 yum install -y net-tools
 yum install -y vim
 yum install -y ntp
